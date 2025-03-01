@@ -19,3 +19,19 @@ docker build -t my-php-app .
 
 sudo docker run -d -p 8080:80 my-php-app 
 curl 127.0.0.1:8080
+
+
+2. Написать Dockerfile для приложения https://github.com/AnastasiyaGapochkina01/node-app, запустить из собранного image контейнер и проверить его работоспособность
+
+FROM node:16
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]
+
+
+
+
+curl 127.0.0.1:3000
